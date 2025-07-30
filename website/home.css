@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  a {
+    text-decoration: none;
+  }
+  navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 7%;
+  }
+  .home {
+    margin: 1%;
+
+  }
+  .ngtn {
+    margin-left: 70%;
+  }
+  header, section {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .badge {
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .features {
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 20rem 0;
+  }
+  .feature {
+    background: #111;
+    padding: 3rem 3rem 3rem 3rem;
+    width: 30pc;
+    border-radius: 80px;
+  }
+  /* .feature-icon {
+    width: 100%;
+    height: 100px;
+    background: #222;
+    margin-bottom: 1rem;
+  } */
+  .benefit {
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  .qaytish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .media-block {
+    
+    max-width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .footer {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+     navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 7%;
+    }
+    .home {
+    margin: 1%;
+
+    }
+    .ngtn {
+    margin-left: 60%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+     navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 7%;
+    }
+    .home {
+    margin: 1%;
+
+    }
+    .ngtn {
+    margin-left: 40%;
+    }
+  }
+  .social-img {
+  width: 180px;
+  max-width: 90vw;
+  height: auto;
+  margin: 10px;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+@media (max-width: 1024px) {
+  .social-img {
+    width: 120px;
+  }
+}
+@media (max-width: 800px) {
+  .social-img {
+    width: 80px;
+  }
+}
+@media (max-width: 600px) {
+  .social-img {
+    width: 60px;
+  }
+}

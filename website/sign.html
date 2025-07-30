@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Sign In</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .form-container {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-toggle {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .form-toggle span {
+      color: #00f;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .toggle-password {
+      float: right;
+      margin-top: -32px;
+      margin-right: 10px;
+      cursor: pointer;
+      color: #aaa;
+    }
+    .google-btn {
+      background-color: #4285f4;
+      color: white;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container" id="signupForm">
+    <h2>Ro'yxatdan o'tish</h2>
+    <input type="text" placeholder="Ism" required>
+    <input type="text" placeholder="Familiya" required>
+    <input type="email" id="email" placeholder="Elektron pochta" required>
+    <input type="password" id="signupPass" placeholder="Parol" required>
+    <span class="toggle-password" onclick="togglePassword('signupPass')">👁️</span>
+    <input type="password" id="signupRepeat" placeholder="Parolni takrorlang" required>
+    <span class="toggle-password" onclick="togglePassword('signupRepeat')">👁️</span>
+    <button id="signup-btn">Sign Up</button>
+    <button id="google-btn" class="google-btn">Google orqali ro'yxatdan o'tish</button>
+    <div class="form-toggle">
+      Hisobingiz bormi? <span onclick="switchToSignIn()">Unda kiring</span>
+    </div>
+  </div>
+
+  <div class="form-container" id="signinForm" style="display: none;">
+    <h2>Kirish</h2>
+    <input type="email" id="signinEmail" placeholder="Elektron pochta" required>
+    <input type="password" id="signinPass" placeholder="Parol" required>
+    <span class="toggle-password" onclick="togglePassword('signinPass')">👁️</span>
+    <button id="signin-btn">Sign In</button>
+    <button id="google-signin" class="google-btn">Google orqali kirish</button>
+    <div class="form-toggle">
+      Hisobingiz yo‘qmi? <span onclick="switchToSignUp()">Ro'yxatdan o'ting</span>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      GoogleAuthProvider,
+      signInWithPopup
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBZKUwiTEV6QUcPW_idO3lt8oWNdL9UrNU",
+      authDomain: "tokenproject-f658c.firebaseapp.com",
+      projectId: "tokenproject-f658c",
+      storageBucket: "tokenproject-f658c.firebasestorage.app",
+      messagingSenderId: "677533882835",
+      appId: "1:677533882835:web:68b948cc781ce4b84e3726"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    document.getElementById("signup-btn").addEventListener("click", function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("signupPass").value;
+      const repeat = document.getElementById("signupRepeat").value;
+      if (password !== repeat) return alert("Parollar mos emas!");
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Ro‘yxatdan o‘tildi!"))
+        .catch((error) => alert("Xatolik: " + error.message));
+    });
+
+    document.getElementById("google-btn").addEventListener("click", function () {
+      signInWithPopup(auth, provider)
+        .then((result) => alert("Google orqali kirildi!"))
+        .catch((error) => alert("Xatolik: " + error.message));
+    });
+
+    document.getElementById("google-signin").addEventListener("click", function () {
+      signInWithPopup(auth, provider)
+        .then((result) => alert("Google orqali kirildi!"))
+        .catch((error) => alert("Xatolik: " + error.message));
+    });
+
+    document.getElementById("signin-btn").addEventListener("click", function () {
+      const email = document.getElementById("signinEmail").value;
+      const password = document.getElementById("signinPass").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Kirish muvaffaqiyatli!"))
+        .catch((error) => alert("Xatolik: " + error.message));
+    });
+  </script>
+
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+    function switchToSignIn() {
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('signinForm').style.display = 'block';
+    }
+    function switchToSignUp() {
+      document.getElementById('signinForm').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

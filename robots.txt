@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://proguzmir.github.io/prouz/sitemap.xml

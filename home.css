@@ -128,6 +128,26 @@
     margin-left: 40%;
     }
   }
+    @media (max-width: 455px) {
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+     navigation {
+    display: flex;
+    align-items: center;
+    /*width: 100%;*/
+    padding: 50px 0px 150px 120px;
+    }
+    .home {
+    margin: 1%;
+
+    }
+    .ngtn {
+    margin-left: 40%;
+    }
+}
+  }
   .social-img {
   width: 180px;
   max-width: 90vw;

@@ -15,15 +15,15 @@
   navigation {
     display: flex;
     align-items: center;
-    width: 100%;
-    margin: 7%;
+    /*width: 100%;*/
+    pading: 4%;
   }
   .home {
     margin: 1%;
 
   }
   .ngtn {
-    margin-left: 70%;
+    margin-left: 77%;
   }
   header, section {
     padding: 2rem 1rem;
@@ -49,8 +49,11 @@
   .feature {
     background: #111;
     padding: 3rem 3rem 3rem 3rem;
-    width: 30pc;
+   /* width: 30pc; */
     border-radius: 80px;
+  }
+  .save {
+    max-width: 300px;
   }
   /* .feature-icon {
     width: 100%;

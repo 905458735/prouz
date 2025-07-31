@@ -151,7 +151,7 @@
     width: 60px;
   }
     .ngtn {
-    padding-top: 28px;
+    margin-top: 28px;
   }
 }
 @media (max-width: 455px) {
@@ -165,6 +165,6 @@
     padding: 20px 0px 150px 20px;
     }
     .ngtn {
-    padding-top: 18px;
+    margin-top: 18px;
   }
 }

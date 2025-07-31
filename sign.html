@@ -70,18 +70,18 @@
 <body>
 
   <div class="form-container" id="signupForm">
-    <h2>Ro'yxatdan o'tish</h2>
-    <input type="text" placeholder="Ism" required>
-    <input type="text" placeholder="Familiya" required>
-    <input type="email" id="email" placeholder="Elektron pochta" required>
-    <input type="password" id="signupPass" placeholder="Parol" required>
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="First name" required>
+    <input type="text" placeholder="Last name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="signupPass" placeholder="Password" required>
     <span class="toggle-password" onclick="togglePassword('signupPass')">👁️</span>
-    <input type="password" id="signupRepeat" placeholder="Parolni takrorlang" required>
+    <input type="password" id="signupRepeat" placeholder="Repeat password" required>
     <span class="toggle-password" onclick="togglePassword('signupRepeat')">👁️</span>
     <button id="signup-btn">Sign Up</button>
-    <button id="google-btn" class="google-btn">Google orqali ro'yxatdan o'tish</button>
+    <button id="google-btn" class="google-btn">Sign up with Google</button>
     <div class="form-toggle">
-      Hisobingiz bormi? <span onclick="switchToSignIn()">Unda kiring</span>
+      Do you have an account?? <span onclick="switchToSignIn()">Then log in</span>
     </div>
   </div>
 
@@ -91,9 +91,9 @@
     <input type="password" id="signinPass" placeholder="Parol" required>
     <span class="toggle-password" onclick="togglePassword('signinPass')">👁️</span>
     <button id="signin-btn">Sign In</button>
-    <button id="google-signin" class="google-btn">Google orqali kirish</button>
+    <button id="google-signin" class="google-btn">sign in with Google</button>
     <div class="form-toggle">
-      Hisobingiz yo‘qmi? <span onclick="switchToSignUp()">Ro'yxatdan o'ting</span>
+      Don't have an account? <span onclick="switchToSignUp()">register</span>
     </div>
   </div>
 
@@ -124,23 +124,23 @@
       const email = document.getElementById("email").value;
       const password = document.getElementById("signupPass").value;
       const repeat = document.getElementById("signupRepeat").value;
-      if (password !== repeat) return alert("Parollar mos emas!");
+      if (password !== repeat) return alert("Passwords do not match!");
 
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Ro‘yxatdan o‘tildi!"))
+        .then(() => alert("registered!"))
         .catch((error) => alert("Xatolik: " + error.message));
     });
 
     document.getElementById("google-btn").addEventListener("click", function () {
       signInWithPopup(auth, provider)
-        .then((result) => alert("Google orqali kirildi!"))
-        .catch((error) => alert("Xatolik: " + error.message));
+        .then((result) => alert("Signed in via Google!"))
+        .catch((error) => alert("ERROR: " + error.message));
     });
 
     document.getElementById("google-signin").addEventListener("click", function () {
       signInWithPopup(auth, provider)
-        .then((result) => alert("Google orqali kirildi!"))
-        .catch((error) => alert("Xatolik: " + error.message));
+        .then((result) => alert("Signed in via Google!"))
+        .catch((error) => alert("ERROR: " + error.message));
     });
 
     document.getElementById("signin-btn").addEventListener("click", function () {
@@ -148,8 +148,8 @@
       const password = document.getElementById("signinPass").value;
 
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Kirish muvaffaqiyatli!"))
-        .catch((error) => alert("Xatolik: " + error.message));
+        .then(() => alert("login successful!"))
+        .catch((error) => alert("ERROR: " + error.message));
     });
   </script>
 

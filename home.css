@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
    /*width: 100%;*/
-    padding: 40px 0px 150px 40px;
+    padding: 50px 0px 150px 120px;
     }
     .home {
     margin: 1%;
@@ -118,7 +118,7 @@
     display: flex;
     align-items: center;
     /*width: 100%;*/
-    padding: 20px 0px 150px 20px;
+    padding: 40px 0px 150px 40px;
     }
     .home {
     margin: 1%;
@@ -155,4 +155,10 @@
   .social-img {
     width: 45px;
   }
+    navigation {
+    display: flex;
+    align-items: center;
+    /*width: 100%;*/
+    padding: 20px 0px 150px 20px;
+    }
 }

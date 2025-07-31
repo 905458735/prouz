@@ -150,6 +150,9 @@
   .social-img {
     width: 60px;
   }
+    .ngtn {
+    padding-top: 28px;
+  }
 }
 @media (max-width: 455px) {
   .social-img {
@@ -161,4 +164,7 @@
     /*width: 100%;*/
     padding: 20px 0px 150px 20px;
     }
+    .ngtn {
+    padding-top: 18px;
+  }
 }

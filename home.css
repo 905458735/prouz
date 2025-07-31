@@ -45,11 +45,16 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     margin: 20rem 0;
+    
   }
   .feature {
     background: #111;
     padding: 3rem 3rem 3rem 3rem;
+<<<<<<< Updated upstream
    /* width: 30pc; */
+=======
+    /* width: 30pc; */
+>>>>>>> Stashed changes
     border-radius: 80px;
   }
   .save {
